@@ -19,11 +19,11 @@ checkCmd tar
 printf "\n\n====================================================\n"
 printf "Downloading lfw-a (subset of people with name starting with A)"
 printf "====================================================\n\n"
-rm -rf lfw-subset
-mkdir -p lfw-subset
-cd lfw-subset
-wget -nv http://vis-www.cs.umass.edu/lfw/lfw-a.tgz
-[ $? -eq 0 ] || ( rm lfw-a.tgz && die "+ lfw-a: Error in wget." )
+rm -rf lfw
+mkdir -p lfw
+cd lfw
+wget -nv http://vis-www.cs.umass.edu/lfw/lfw.tgz
+[ $? -eq 0 ] || ( rm lfw.tgz && die "+ lfw: Error in wget." )
 
 printf "\n\n====================================================\n"
 printf "Verifying checksums.\n"
@@ -59,13 +59,9 @@ checkmd5() {
 
 set -e
 
-checkmd5 \
-  lfw-a.tgz \
-  678b1f67c300002fedafbb0705d22e8d
-
-tar xf lfw-a.tgz
+tar xf lfw.tgz
 mkdir raw
-mv lfw/{Ann_Veneman,Adrien_Brody,Anna_Kournikova} raw
+mv lfw/ raw
 rm -rf lfw
 
-rm lfw-a.tgz
+rm lfw.tgz

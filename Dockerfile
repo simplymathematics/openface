@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD . /root/openface
+
 RUN python -m pip install --upgrade --force pip
 RUN cd ~/openface && \
     ./models/get-models.sh && \

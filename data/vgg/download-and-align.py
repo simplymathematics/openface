@@ -26,7 +26,7 @@ import argparse
 import cv2
 import dlib
 import os
-import urllib2
+import urllib.request as urllib2
 import hashlib
 
 from multiprocessing import Pool
